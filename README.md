@@ -14,7 +14,7 @@ Meanwhile， the Verification code is also provided and stored in the directory 
 The program is written in C++ and tested on Red Hat Enterprise Linux 7.9(64-bit), 
 and with 2 RTX6000 GPUs with 24GB of RAM, and 2 * 2.6 GHz Intel Xeon Gold 6240 CPUs (18 cores) with 256GB RAM. 
 This program requires Cmake 3.8 or greater but the version of GCC is no higher than 5.4.0. 
-
+Meanwhile, this program also requires CUDA 10.0 (or 9.1) is installed in the root directory of the server.
 
 Notice:
 	The use of the original algorithm[1] for constructing SA using multiple GPUs needs to pay attention to the communication mode between GPUs, 
@@ -30,7 +30,8 @@ Compile command for compressor:
 Compile command for decompressor:
 	cd TLMRGCDE
        	make
-
+Compile command for Verification:
+cd VERIFI
 make
 //Compress , decompress and verification commands
 Compress commands:
@@ -53,3 +54,8 @@ Example:     (./TLMRGCDE   hg17   hg17-compressed  Second-level-folder First-lev
 hg17 is the reference genome; hg17--compressed is the compression result; 
 Second-level-folder is the folder used to store the decoded information of the hg17-compressed; 
 First-level-folder is the folder used to store the decoded information of First-level-folder; Decode is  the folder used to store the decoded result; 
+Verification commands
+(Verification)  ./ Decode genome    Verification
+Example:     (./VERIFI   De-hg17   hg17)
+De-hg17 is the result of the decoding, hg17 is the compressed genome;
+The default name of the chromosome is the same as those used for compression.
